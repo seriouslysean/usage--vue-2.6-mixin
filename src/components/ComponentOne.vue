@@ -1,19 +1,23 @@
 <template>
   <div class="component-one">
     <h1>Component One</h1>
+
     <Message :message="$message" />
     <Message :message="hello" />
+
+    <p>{{ $formatCurrency(1.0387) }}</p>
   </div>
 </template>
 
 <script>
+import currencyMixin from "../mixins/currency.js";
 import messageMixin from "../mixins/message.js";
 
 import Message from "./Message.vue";
 
 export default {
   name: "ComponentOne",
-  mixins: [messageMixin],
+  mixins: [currencyMixin, messageMixin],
   components: {
     Message
   },
